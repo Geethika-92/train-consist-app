@@ -1,52 +1,35 @@
 import java.util.*;
-import java.util.stream.Collectors;
-
-class Bogie {
-    String id;
-    String type;
-    int capacity;
-
-    public Bogie(String id, String type, int capacity) {
-        this.id = id;
-        this.type = type;
-        this.capacity = capacity;
-    }
-
-    public String getType() {
-        return type;
-    }
-
-    public void display() {
-        System.out.println("ID: " + id + ", Type: " + type + ", Capacity: " + capacity);
-    }
-}
+import java.util.stream.*;
 
 public class TrainAppUC9 {
+
     public static void main(String[] args) {
 
-        // Step 1: Create list
+        System.out.println("=== UC9: Group Bogies by Type ===");
+
+        // Create list of bogies
         List<Bogie> bogies = new ArrayList<>();
 
-        bogies.add(new Bogie("B1", "Sleeper", 50));
-        bogies.add(new Bogie("B2", "AC Chair", 72));
-        bogies.add(new Bogie("B3", "First Class", 80));
-        bogies.add(new Bogie("B4", "Sleeper", 60));
-        bogies.add(new Bogie("B5", "AC Chair", 90));
+        bogies.add(new Bogie("Sleeper", 72));
+        bogies.add(new Bogie("AC Chair", 56));
+        bogies.add(new Bogie("Sleeper", 72));
+        bogies.add(new Bogie("First Class", 24));
+        bogies.add(new Bogie("AC Chair", 56));
 
-        // Step 2: Group using groupingBy()
-        Map<String, List<Bogie>> grouped =
+        // Print original list
+        System.out.println("\nOriginal List:");
+        System.out.println(bogies);
+
+        // Group using Stream API
+        Map<String, List<Bogie>> groupedBogies =
                 bogies.stream()
-                        .collect(Collectors.groupingBy(b -> b.getType()));
+                        .collect(Collectors.groupingBy(b -> b.name));
 
-        // Step 3: Display result
-        System.out.println("=== Grouped Bogies ===");
+        // Print grouped result
+        System.out.println("\nGrouped Bogies:");
 
-        for (String key : grouped.keySet()) {
-            System.out.println("\nType: " + key);
-
-            for (Bogie b : grouped.get(key)) {
-                b.display();
-            }
+        for (Map.Entry<String, List<Bogie>> entry : groupedBogies.entrySet()) {
+            System.out.println(entry.getKey() + " -> " + entry.getValue());
         }
     }
 }
