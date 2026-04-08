@@ -2,11 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-<<<<<<< HEAD
-      <module fileurl="file://$PROJECT_DIR$/TrainConsistApp.iml" filepath="$PROJECT_DIR$/TrainConsistApp.iml" />
-=======
-      <module fileurl="file://$PROJECT_DIR$/.idea/train-consist-app.iml" filepath="$PROJECT_DIR$/.idea/train-consist-app.iml" />
->>>>>>> 1a7bc72 (Added UC8 Train Consist Stream Filtering)
+      <module fileurl="file://$PROJECT_DIR$/train-consist-app.iml" filepath="$PROJECT_DIR$/train-consist-app.iml" />
     </modules>
   </component>
 </project>
